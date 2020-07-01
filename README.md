@@ -1,2 +1,2 @@
-# raxjs-oss-deploy
-raxjs 部署到OSS
+# build-plugin-rax-oss-deploy
+raxjs部署到OSS插件
