@@ -1,0 +1,28 @@
+{
+  "name": "build-plugin-rax-oss-deploy",
+  "version": "0.0.1",
+  "description": "A rax plugin for deploy web resource to oss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronW-BE/build-plugin-rax-oss-deploy.git"
+  },
+  "keywords": [
+    "rax",
+    "rax-plugin"
+  ],
+  "author": "AaronW",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AaronW-BE/build-plugin-rax-oss-deploy/issues"
+  },
+  "homepage": "https://github.com/AaronW-BE/build-plugin-rax-oss-deploy#readme",
+  "dependencies": {
+    "@alib/build-scripts": "^0.1.23",
+    "ali-oss": "^6.9.1",
+    "chalk": "^4.1.0"
+  }
+}
