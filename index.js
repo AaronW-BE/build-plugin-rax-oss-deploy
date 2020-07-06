@@ -19,6 +19,7 @@ module.exports = (api, options) => {
       const accessKeyId = options.accessKeyId;
       const accessKeySecret = options.accessKeySecret;
       const bucket = options.bucket;
+      const ossRoot = options.root || 'web';
 
       const deployResource = options.deployResource || 'build/web';
 
@@ -35,7 +36,7 @@ module.exports = (api, options) => {
 
       let files = []
       const dir = path.resolve(context.rootDir, deployResource);
-      readFileList(dir, files)
+      readFileList(dir, files, ossRoot)
       
       for(let file of files){
         let result = await client.put(file.name, file.path).catch(e => {
@@ -84,7 +85,7 @@ function optionsCheck(api, options){
   }
 }
 
-function readFileList(dir, fileList, startPath = ''){
+function readFileList(dir, fileList, startPath){
   const files = fs.readdirSync(dir)
 
   for(let file of files){

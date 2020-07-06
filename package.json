@@ -1,6 +1,6 @@
 {
   "name": "build-plugin-rax-oss-deploy",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A rax plugin for deploy web resource to oss",
   "main": "index.js",
   "scripts": {
