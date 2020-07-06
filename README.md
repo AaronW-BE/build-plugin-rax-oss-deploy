@@ -1,6 +1,6 @@
 # build-plugin-rax-oss-deploy
 
-This plugin help you to deploy build resource upload to your OSS automatic, you need a OSS bucket in advance.
+This plugin helps you to deploy build resource upload to your OSS automatic, you need a OSS bucket in advance.
 Upload target dir is ```/``` in bucket workspace.
 ### Install
 ```
