@@ -2,8 +2,6 @@ const chalk = require('chalk');
 const OSS = require('ali-oss');
 const fs = require("fs");
 const path = require('path');
-const { resourceUsage } = require('process');
-const { info } = require('console');
 
 module.exports = (api, options) => {
     const {
@@ -85,20 +83,32 @@ function optionsCheck(api, options){
   }
 }
 
+let root;
+let _startPath;
 function readFileList(dir, fileList, startPath){
   const files = fs.readdirSync(dir)
+
+  if(!root){
+    root = dir;
+    _startPath = startPath;
+  }
 
   for(let file of files){
     let fullPath = path.join(dir, file);
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
-      startPath = startPath + '/' + file;
+
+      const rootLength = root.split(path.sep).length;;
+
+      const relatePath = fullPath.split(path.sep).slice(rootLength);
+
+      startPath = _startPath + '/' + relatePath.join('/')
       readFileList(path.join(dir, file), fileList, startPath);
-    } else {                
+    } else {
       fileList.push({
         name: ( startPath ? startPath + '/' : '')  + file,
         path: fullPath
-      });                     
+      });
     }
   }
 }
